@@ -1,0 +1,18 @@
+variant: fcos
+version: 1.1.0
+storage:
+  files:
+    - path: /etc/chrony.conf
+      contents:
+        inline: |
+          sourcedir /run/chrony-dhcp
+          driftfile /var/lib/chrony/drift
+          makestep 1.0 3
+          rtcsync
+          keyfile /etc/chrony.keys
+          ntsdumpdir /var/lib/chrony
+          leapsectz right/UTC
+          logdir /var/log/chrony
+          server ntp1.anu.edu.au iburst
+          server ntp2.anu.edu.au iburst
+      mode: 0420

@@ -1,0 +1,17 @@
+variant: fcos
+version: 1.2.0
+storage:
+  luks:
+    - name: root
+      device: /dev/disk/by-partlabel/root
+      clevis:
+        tang:
+          - url: http://tang.infra.hahl.id.au:7500
+            thumbprint: PLjNyRdGw03zlRoGjQYMahSZGu9
+      options: [--cipher, aes-cbc-essiv:sha256]
+      wipeVolume: true
+  filesystems:
+    - device: /dev/mapper/root
+      format: xfs
+      wipeFilesystem: true
+      label: root

@@ -1,0 +1,53 @@
+apiVersion: v1
+baseDomain: ${BASE_DOMAIN}
+compute:
+- hyperthreading: Enabled
+  name: worker
+  replicas: 0
+controlPlane:
+  hyperthreading: Enabled
+  name: master
+  replicas: 3
+metadata:
+  name: ${CLUSTER_NAME}
+networking:
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  networkType: KubernetesOVN
+  serviceNetwork:
+  - 172.30.0.0/16
+platform:
+  none: {}
+fips: false
+pullSecret: '${PULL_SECRET}'
+sshKey: '${SSH_KEY}'
+additionalTrustBundle: |
+  -----BEGIN CERTIFICATE-----
+  MIIEiDCCAvCgAwIBAgIBATANBgkqhkiG9w0BAQsFADA1MRMwEQYDVQQKDApIQUhM
+  LklELkFVMR4wHAYDVQQDDBVDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwHhcNMjEwMTAy
+  MDYwNTA3WhcNNDEwMTAyMDYwNTA3WjA1MRMwEQYDVQQKDApIQUhMLklELkFVMR4w
+  HAYDVQQDDBVDZXJ0aWZpY2F0ZSBBdXRob3JpdHkwggGiMA0GCSqGSIb3DQEBAQUA
+  A4IBjwAwggGKAoIBgQDXbzotzuoErYG6X2VfdtaD4g3GOPJn/lLJHs+WAPMrubXf
+  3FYDJDizXKmb6x/rEbr5xWZ9WMp/tyVbzYmZAzAQb2TyZT81QA2ayGpQJTHnmrnd
+  GLm7TuRyIMuC5f/lebNRkXWnCIfmuMHksXhS8Va6lr9GCHNVq3qDuKYiqX1S0rHx
+  YlxHSx04GWmQL7AMYeaRX1iZ+6MaAmsiH28B7BalE9UCes2sGkh75VcUCytfF7bo
+  RdMSjJjwrudAIUISaaQVCNGRybQ+p/AUxIAUH6OUtzNstaFhkEwC9PwYbNMkZttI
+  obg6Ao8YsTtNBVJsVb8xAQ0p9uBFTQdh7JFSUAtf1HhexRxF/bAIIB36EctEIlw/
+  TfwXqj6iRWYaAeMA5dn3lbcTrUn+dZXvuy8bqPcvtxiZZ/ZNWdUDH8oAFiFdPGtX
+  ol1UUrlf7Jb8+uhcaIXJxqaboVuaGMcT/l5wuzFLLk7BYTZEiS6GwjXHX2FLf8z2
+  gtkr6KFntyxiDNinci0CAwEAAaOBojCBnzAfBgNVHSMEGDAWgBR8jVFMRShF8mdK
+  dc77hE7qbAORojAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBxjAdBgNV
+  HQ4EFgQUfI1RTEUoRfJnSnXO+4RO6mwDkaIwPAYIKwYBBQUHAQEEMDAuMCwGCCsG
+  AQUFBzABhiBodHRwOi8vaXBhLWNhLmhhaGwuaWQuYXUvY2Evb2NzcDANBgkqhkiG
+  9w0BAQsFAAOCAYEA02jUfLByT+onUREFS2DTs7k0ED+dAIpum3pO0rMTT+WrAFIz
+  jwauPtpVkvtvZvHe5MvbbxLMtIbz9DByWgyoSfTb3/V4qySS4B4BvKX50LaEfbMc
+  7ciAgFhksAjDNRr4AQ0cLljMMMxe4pzNLChdvIm1sh+X6uw5TLI8mUUwwjoIJZ2q
+  Fz00251vfouUFvsyPtkk6z7poKV0wQRi490fLvnNdHzfRoscFgQc4eWHApX9zaEU
+  db88FxXC4r0k6/v2NrFhx6HyBWt1VTdbHXUBsmG09ImaRYVQzC0eAvkuKR6lWIdO
+  mshCULmlHmxeWLJdndM72Cy+Sw6dPtXSj3A2vo8ICimjUPc6E9B3j9ilGtNum9cl
+  9N+3Ri2NpAp9PVFoSKxh0pZdIGXAhbjnfC9dZDZ5VXu8HuiwBp63KwY8spTSy33p
+  1a3A5Dw38an6nPfCzPHgxCIY1d9AvP805WtgJyvImqxv2J7IYF2/YJ3wmbaldkz+
+  5K/Fxr793tmxsLre
+  -----END CERTIFICATE-----
+
