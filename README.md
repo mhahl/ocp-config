@@ -1,4 +1,4 @@
-# Generate OpenShift artifacts
+# Generate OpenShift Igntion from Butane
 
 ## Setup
 
@@ -25,11 +25,8 @@ export SSH_KEY="..."
 bash build.sh
 ```
 
-4. Ignition files / install-config are generated in dist/
+4. Ignition files / install-config are generated in dist/igntion/bundle.ign
 
-5. Upload to b2 along with 
-* worker.ign
-* master.ign
-* bootstrap.ign
+## Add new butane
 
-which are created from the `./openshift-install create ignition-configs --dir=install` command.
+You will need to modify 00-include.yaml and the build scripts.
