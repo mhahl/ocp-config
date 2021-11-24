@@ -1,0 +1,12 @@
+---
+apiVersion: operator.openshift.io/v1
+kind: Console
+metadata:
+  name: cluster
+spec:
+  logLevel: Normal
+  managementState: Managed
+  operatorLogLevel: Normal
+  route:
+    hostname: console.apps.${CLUSTER_NAME}.${BASE_DOMAIN}
+
